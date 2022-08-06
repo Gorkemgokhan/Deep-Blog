@@ -1,4 +1,4 @@
-</div>
+
 <!-- Footer-->
 <footer class="border-top"  >
     <div class="container px-2 px-lg-5">
@@ -36,8 +36,9 @@
                             <circle cx="12" cy="12" r="3"></circle>
                             <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
                         </a>
+                    </svg>
                 </ul>
-                <div  class="small text-center text-muted fst-italic">gorkem12_gokhan12@hotmail.com &copy; Bütün Hakları Saklıdır 2022</div>
+                <div  class="small text-center text-muted fst-italic">BigBlogDİg &copy; Bütün Hakları Saklıdır 2022</div>
             </div>
         </div>
     </div>

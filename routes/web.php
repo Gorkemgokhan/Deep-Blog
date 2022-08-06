@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Homepage::class,"index"])->name("homepage");
 Route::get("/kategori/{category}",[Homepage::class,"category"])->name("category");
 Route::get("/{category}/{slug}",[Homepage::class,"single"])->name("single");
+Route::get("/Ghakkında",[Homepage::class,"hakkinda"])->name("hakkinda");
+Route::get("/Giletisim",[Homepage::class,"iletisim"])->name("iletisim");
