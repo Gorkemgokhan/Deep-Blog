@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/ana-sayfa', [Homepage::class,"index"])->name("homepage");
+Route::get('/', [Homepage::class,"index"])->name("homepage");
+Route::get('/anasayfa', [Homepage::class,"index"])->name("homepage");
 Route::get('sayfa',[Homepage::class,"index"]);
 Route::get("/kategori/{category}",[Homepage::class,"category"])->name("category");
 Route::get("/{category}/{slug}",[Homepage::class,"single"])->name("single");
 Route::get("/hakkinda",[Homepage::class,"hakkinda"])->name("hakkinda");
 Route::get("/iletisim",[Homepage::class,"iletisim"])->name("iletisim");
 Route::get("/{sayfa}",[Homepage::class,"page"])->name("page");
+Route::get("/misyon",[Homepage::class,"misyon"])->name("misyon");
+Route::get("/vizyon",[Homepage::class,"vizyon"])->name("vizyon");

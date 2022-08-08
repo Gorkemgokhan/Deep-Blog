@@ -53,5 +53,17 @@ class Homepage extends Controller
         $data["pages"]=Page::orderBy("order","ASC")->get();
         return view("front.widgets.anabilgi.hakkinda",$data);
     }
+    public function vizyon($slug){
+        $vizyon=page::whereSlug($slug)->first()?? abort(403,"Böyle Bir Makale Yayınlanmadı");
+        $data["page"]=$vizyon;
+        $data["pages"]=Page::orderBy("order","ASC")->get();
+        return view("front.widgets.anabilgi.vizyon",$data);
+    }
+    public function misyon($slug){
+    $misyon=page::whereSlug($slug)->first()?? abort(403,"Böyle Bir Makale Yayınlanmadı");
+    $data["page"]=$misyon;
+    $data["pages"]=Page::orderBy("order","ASC")->get();
+    return view("front.widgets.anabilgi.misyon",$data);
+}
 
 }
