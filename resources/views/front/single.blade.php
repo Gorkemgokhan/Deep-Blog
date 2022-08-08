@@ -2,13 +2,15 @@
 <title>Makale</title>
 @section("content")
 
-<div class="container px-3 px-lg-1">
+<div class="container px-4 px-lg-3">
     <div class="row gx-4  gx-lg-7 justify-content-center">
         @include("front.widgets.categoryWidget")
-            <div class="col-md-7 mx-auto">
-                <img style="width:890px; height: 660px" ; src="{{$article->image}}"/>
+            <div class="col-md-9 mx-auto">
+                <h2 style="text-align: center">{!! $article->title !!}</h2>
+                <img style="width:930px; height: 750px" ; src="{{$article->image}}"/>
                 <br>
                 {!! $article->content !!}
+                <h5> Konusu : {{$article->getCategory->name}}</h5>
                 <h5> Görüntülenme : {{$article->hit}}</h5>
             </div>
     </div>

@@ -5,10 +5,10 @@
         </div>
         <div class="list-group" >
             @foreach($categories as $category)
-                <li class="list-group-item">
-                    <a href="{{route("category",$category->slug)}}" style="color: black">{{$category->name}}</a> <span class="badge bg-danger " style="float: right">{{$category->articleCount()}}</span>
+                <li class="list-group-item @if(Request::segment(2)==$category->slug) active @endif">
+                    <a href="{{route("category",$category->slug)}}" style="color: black">{{$category->name}}</a>
+                    <span class="badge bg-danger text-white " style="float:right" >{{$category->articleCount()}}</span>
                 </li>
-
             @endforeach
         </div>
     </div>

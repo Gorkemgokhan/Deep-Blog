@@ -14,15 +14,16 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
+        for($i=0;$i<50;$i++) {
             DB::table("icerikler")->insert([
-               "category_id"=>rand(1,7),
-                "title"=>Str::slug("Deneme Başlık42"),
-                "image"=>asset("https://www.google.com/search?q=front/assets/Logo.icon&client=opera&hs=4xE&sxsrf=ALiCzsYoTik3kGJoP9HCq5KLjcEr-D_Y9A:1659520069535&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiaxveBsqr5AhUNVfEDHQVfA_sQ_AUoAXoECAEQAw&biw=1880&bih=939&dpr=1#imgrc=mL_2nR_fuSzJ0M"),
-                "content"=>Str::slug("Deneme Metin yazıları asdfasfasşşliasfasldslkdlsaldlsaldasşldlasldilasidliasl"),
-                "slug"=>Str::slug("Deneme Başlık"),
-                "created_at"=>now(),
-                "updated_at"=>now()
+                "category_id" => random_int(1,9),
+                "title" => Str::slug("Deneme Başlık42"),
+                "image" => asset("https://www.google.com/search?q=front/assets/Logo.icon&client=opera&hs=4xE&sxsrf=ALiCzsYoTik3kGJoP9HCq5KLjcEr-D_Y9A:1659520069535&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiaxveBsqr5AhUNVfEDHQVfA_sQ_AUoAXoECAEQAw&biw=1880&bih=939&dpr=1#imgrc=mL_2nR_fuSzJ0M"),
+                "content" => Str::slug("Deneme Metin yazıları asdfasfasşşliasfasldslkdlsaldlsaldasşldlasldilasidliasl"),
+                "slug" => Str::slug("Deneme Başlık"),
+                "created_at" => now(),
+                "updated_at" => now()
             ]);
-
+        }
     }
 }

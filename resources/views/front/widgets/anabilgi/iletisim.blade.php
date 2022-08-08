@@ -44,8 +44,21 @@
                              </span>
                         </a>
                     </li>
+                    <li class="list-inline-item" href="https://www.instagram.com/gorkem12_gokhan12/">
+                        telegram
+                        <a href="https://github.com/Gorkemgokhan">
+                             <span class="fa-stack fa-lg">
+                                 <i class="fas fa-circle fa-stack-2x"></i>
+                                 <i class="fa-brands fa-telegram fa-stack-1x fa-inverse"></i>
+                             </span>
+                        </a>
+                    </li>
                     <br>
                     <li class="list-inline-item">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fa-solid fa-envelope fa-stack-1x fa-inverse"></i>
+                        </span>
                         E-mail :
                         <a>
                         gorkem12_gokhan12@hotmail.com
