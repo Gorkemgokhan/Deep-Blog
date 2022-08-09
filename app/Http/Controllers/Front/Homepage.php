@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
+use Validator;
 //Modellerim
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
+use Illuminate\Http\Request;
+use App\Models\Models\Contact;
 
 
 class Homepage extends Controller
@@ -64,6 +67,22 @@ class Homepage extends Controller
     $data["page"]=$misyon;
     $data["pages"]=Page::orderBy("order","ASC")->get();
     return view("front.widgets.anabilgi.misyon",$data);
-}
+    }
+    public function iletisimpost(Request $request){
+        $rules=[
+            "name"=>"required|min:5",
+            "email"=>"required|email",
+            "konu"=>"required",
+            "message"=>"required|min:10"
+        ];
+
+        $contact=new Contact();
+        $contact->name=$request->name;
+        $contact->email=$request->email;
+        $contact->konu=$request->konu;
+        $contact->message=$request->message;
+        $contact->save();
+        return redirect()->route("iletisim")->with("success","Mesajınız Bize iletildi.Teşekkür Ederiz. ");
+    }
 
 }

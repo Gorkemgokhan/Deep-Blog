@@ -23,7 +23,8 @@
 
                 @endforeach
                 <hr class="my-4"/>
-                    <div class="d-flex justify-content-center">Sayfalar <br>{{$icerikler->links()}}</div>
+                    <div class="d-flex justify-content-center">Sayfalar</div>
+                    <div class="d-flex justify-content-center"> {{$icerikler->links()}}</div>
             </div>
         </div>
         </div>
