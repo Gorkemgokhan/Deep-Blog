@@ -23,19 +23,14 @@
                         <div class="form-floating">
                             <input class="form-control" name="email" value="{{old("email")}}" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
                             <label for="email">Email adresi</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">Bir e-mail gerekli.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">E-posta geçerli değil.</div>
                         </div>
                         <div class="form-floating">
                             <input class="form-control" name="konu" value="{{old("konu")}}" type="konu" placeholder="Konuyu seçiniz" data-sb-validations="required" />
-                            <label for="phone">Konu</label>
-                            <div class="invalid-feedback" data-sb-feedback="konu:required">Konuyu Bildirin</div>
+                            <label >Konu</label>
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" name="message" value="{{old("message")}}" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
                             <label for="message">Mesajınız</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">Bir mesaj gerekli.</div>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                         </div>
                         <br />
                         <!-- Submit success message-->

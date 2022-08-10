@@ -69,20 +69,14 @@ class Homepage extends Controller
     return view("front.widgets.anabilgi.misyon",$data);
     }
     public function iletisimpost(Request $request){
-        $rules=[
-            "name"=>"required|min:5",
-            "email"=>"required|email",
-            "konu"=>"required",
-            "message"=>"required|min:10"
-        ];
+    $contact=new Contact();
+    $contact->name=$request->name;
+    $contact->email=$request->email;
+    $contact->konu=$request->konu;
+    $contact->message=$request->message;
+    $contact->save();
 
-        $contact=new Contact();
-        $contact->name=$request->name;
-        $contact->email=$request->email;
-        $contact->konu=$request->konu;
-        $contact->message=$request->message;
-        $contact->save();
-        return redirect()->route("iletisim")->with("success","Mesajınız Bize iletildi.Teşekkür Ederiz. ");
+
     }
 
 }
