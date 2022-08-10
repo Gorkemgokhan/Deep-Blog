@@ -5,6 +5,14 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
+| Backend Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::get("admin/panel",[App\Http\Controllers\Back\Dashboard::class,"index"])->name("admin.dashboard");
+Route::get("admin/giris",[App\Http\Controllers\Back\Auth::class,"login"])->name("admin.login");
+/*
+|--------------------------------------------------------------------------
 | Front Routes
 |--------------------------------------------------------------------------
 |
@@ -20,10 +28,4 @@ Route::post("/iletisimm",[Homepage::class,"iletisimpost"])->name("iletisimpost")
 Route::get("/{sayfa}",[Homepage::class,"page"])->name("page");
 Route::get("/misyon",[Homepage::class,"misyon"])->name("misyon");
 Route::get("/vizyon",[Homepage::class,"vizyon"])->name("vizyon");
-/*
-|--------------------------------------------------------------------------
-| Backend Routes
-|--------------------------------------------------------------------------
-|
-*/
-Route::get("admin/panel","Back\Dashboard@index")->name("admin.dashboard");
+

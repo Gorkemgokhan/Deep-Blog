@@ -75,8 +75,7 @@ class Homepage extends Controller
     $contact->konu=$request->konu;
     $contact->message=$request->message;
     $contact->save();
-
-
+    return redirect()->route("iletisim")->with("success","Mesajınız Bize ulaştı. Teşekkürler.");
     }
 
 }
