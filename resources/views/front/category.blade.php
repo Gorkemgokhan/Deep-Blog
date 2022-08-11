@@ -9,11 +9,11 @@
             <div class="col-md-9">
 
                 @foreach($icerikler as $icerik)
-                    <div class="post-preview">
+                    <div  class="post-preview">
                         <p class="post-meta">
                             <a href="{{route("single",[$icerik->getCategory->slug,$icerik->slug])}}">
                         <h2 style="text-align: center" class="post-title">{{$icerik->title}}</h2>
-                        <img style="width:970px; height: 750px"; src="{{$icerik->image}}"/>
+                        <img style="width:970px; height: 730px"; src="{{$icerik->image}}"/>
                          <h4  class="post-subtitle">{{Str::limit($icerik->content,70)}}</h4></a>
                          <a >Konusu:{{$icerik->getCategory->name}}</a>
                          <span class="float-right">Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}<br></span>
@@ -22,8 +22,6 @@
                     <h5>Görüntülenme : {{$icerik->hit}}</h5>
 
                 @endforeach
-                <hr class="my-4"/>
-                    <div class="d-flex justify-content-center">Sayfalar</div>
                     <div class="d-flex justify-content-center"> {{$icerikler->links()}}</div>
             </div>
         </div>
