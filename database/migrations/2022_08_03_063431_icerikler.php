@@ -20,6 +20,7 @@ class Icerikler extends Migration
             $table->string("image");
             $table->longText("content");
             $table->integer("hit")->default(0);
+            $table->integer("status")->default(0)->comment("0:pasif 1:aktif");
             $table->longText("slug");
             $table->timestamps();
 

@@ -3,10 +3,10 @@
 <!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Admin  &copy; Blog Sitesi Admin {{date("Y")}}</span>
+<footer  class="sticky-footer " style="background: #1A1A1D">
+    <div class="container my-auto" >
+        <div class="copyright text-center my-auto" >
+            <span >Admin  &copy; Blog Sitesi Admin {{date("Y")}}</span>
         </div>
     </div>
 </footer>
@@ -60,6 +60,10 @@
 <script src="{{asset("back/")}}/js/demo/chart-area-demo.js"></script>
 <script src="{{asset("back/")}}/js/demo/chart-pie-demo.js"></script>
 
+<script src="{{asset("back/")}}/vendor/datatables/jquery.dataTables.js"></script>
+<script src="{{asset("back/")}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset("back/")}}/js/demo/datatables-demo.js"></script>
+@yield("js")
 </body>
 
 </html>
