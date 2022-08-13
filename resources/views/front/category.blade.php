@@ -13,7 +13,7 @@
                         <p class="post-meta">
                             <a href="{{route("single",[$icerik->getCategory->slug,$icerik->slug])}}">
                         <h2 style="text-align: center" class="post-title">{{$icerik->title}}</h2>
-                        <img style="width:970px; height: 730px"; src="{{$icerik->image}}"/>
+                        <img style="width:930px; height: 750px"; src="{{$icerik->image}}"/>
                          <h4  class="post-subtitle">{{Str::limit($icerik->content,70)}}</h4></a>
                          <h6 >Konusu: {{$icerik->getCategory->name}}</h6>
                          <h6 class="float-right">Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}</h6>

@@ -23,6 +23,7 @@ class Icerikler extends Migration
             $table->integer("status")->default(0)->comment("0:pasif 1:aktif");
             $table->longText("slug");
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories');
 
         });
     }

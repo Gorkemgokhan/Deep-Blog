@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" >
                     <thead>
                     <tr>
                         <th>Fotoğraf</th>
@@ -22,10 +22,12 @@
                     </tr>
                     </thead>
                    <tbody>
+
                    @foreach($articles as $article)
+
                     <tr>
                         <td>
-                            <img src="{{$article->image}}" width="300" >
+                            <img src="/{{$article->image}}" width="350">
                         </td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->getCategory->name}}</td>

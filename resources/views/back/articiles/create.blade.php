@@ -9,8 +9,8 @@
         <div class="card-body">
             @if($errors->any())
                 <div class="alert alert-danger">
-                    @foreach($errors->all() as $errors)
-                      <li>{{$errors}}</li>
+                    @foreach($errors->all() as $error)
+                      <li>{{$error}}</li>
                     @endforeach
                 </div>
             @endif
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group" >
                     <label>İçerik</label>
-                    <textarea style="height: 300px"  name="content" class="form-control" rows="4"></textarea>
+                    <textarea name="content" class="form-control" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">İçeriği Oluştur</button>

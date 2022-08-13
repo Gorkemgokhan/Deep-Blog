@@ -23,7 +23,7 @@ class  PageSeeder extends Seeder
             DB::table("pages")->insert([
                 "title" => $page,
                 "slug" => Str::slug($page),
-                "image" => "https://www.ntv.com.tr/galeri/sanat/corona-virus-temali-sokak-resimleri,TzXC_BQV8k6oxfRv4pZYkQ",
+                "image" => "https://cdn.pixabay.com/photo/2022/08/05/19/21/squirrel-7367445_960_720.jpg",
                 "content" => "I want the random text from Lorem Ipsum so I can use it when generating webpages.
                                 I can't find any PHP functions that does this and I'm wondering if there's any publicly available libraries
                                 or APIs on sites that could be used to get some random text?",
