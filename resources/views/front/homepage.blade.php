@@ -2,7 +2,7 @@
 @section("content")
     @if(count($icerikler)>0)
 <div class="container px-4 px-lg-3">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="row gx-4 gx-lg-2 justify-content-center">
 
 
             @include("front.widgets.categoryWidget")
@@ -11,7 +11,7 @@
                     <div class="post-preview">
                         <a href="{{route("single",[$icerik->getCategory->slug,$icerik->slug])}}">
                             <h2 style="text-align: center" class="post-title">{{$icerik->title}}</h2>
-                            <img style="width:930px; height: 750px"; src="{{$icerik->image}}"/>
+                            <img style=" max-width: 100%;height: auto;" src="{{$icerik->image}}"/>
                             <h4 class="post-subtitle">{{Str::limit($icerik->content,70)}}</h4>
                         </a>
                         <p class="post-meta">

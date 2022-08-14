@@ -14,7 +14,7 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        for($i=0;$i<10;$i++) {
+       /* for($i=0;$i<10;$i++) {
             DB::table("icerikler")->insert([
                 "category_id" => random_int(1,9),
                 "title" => Str::slug("Deneme Başlık42"),
@@ -24,6 +24,6 @@ class ArticleSeeder extends Seeder
                 "created_at" => now(),
                 "updated_at" => now()
             ]);
-        }
+        }*/
     }
 }

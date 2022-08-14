@@ -4,8 +4,8 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <ul style="background: #1A1A1D"  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <ul style="background: #1A1A1D" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route("admin.dashboard")}}">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -40,21 +40,10 @@
 
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                       aria-expanded="true" aria-controls="collapseUtilities">
-                        <i class="fas fa-fw fa-wrench"></i>
-                        <span>Utilities</span>
+                    <a class="nav-link " @if(Request::segment(2)=="kategoriler") style="color: white!important;" @endif href="{{route('admin.category.index')}}">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Kategoriler</span>
                     </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                         data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            <a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>
-                        </div>
-                    </div>
                 </li>
 
                 <!-- Divider -->
@@ -110,22 +99,21 @@
 
                 <!-- Sidebar Message -->
                 <div class="sidebar-card d-none d-lg-flex">
-                    <img class="sidebar-card-illustration mb-2" src="{{asset("back/")}}/img/undraw_rocket.svg" alt="...">
-                    <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                    <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+                    <img class="sidebar-card-illustration mb-2" src="{{asset("back/")}}/img/undraw_profile_2.svg" alt="...">
+                    <a class="btn btn-danger btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">İletişim</a>
                 </div>
 
             </ul>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content-wrapper" style="background: #1A1B1A" class="d-flex flex-column">
 
                 <!-- Main Content -->
-                <div id="content">
+                <div style="background: #1A1B1A" id="content">
 
                     <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <nav class="  navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
 
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
