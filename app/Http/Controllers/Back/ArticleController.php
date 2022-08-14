@@ -39,6 +39,10 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'min:3',
+            'image'=>'image|mimes:jpeg,png,jpg|max:2048'
+        ]);
 
         $article=new Article;
         $article->title=$request->title;
@@ -75,7 +79,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return $id."edit";
+        $article=Article::findOrFail($id);
+        $categories=Category::all();
+        return view('back\articiles\update',compact('categories','article'));
     }
 
     /**
@@ -87,9 +93,32 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+           'title'=>'min:3',
+            'image'=>'image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+        $article=Article::findOrFail($id);
+        $article->title=$request->title;
+        $article->category_id=$request->category;
+        $article->content=$request->content;
+        $article->slug=Str::slug($request->title);
+        if ($request->hasFile('image')){
+            $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'),$imageName);
+            $article->image='uploads/'.$imageName;
+        }
+        $article->save();
+        toastr()->success('Başarılı!', 'Makale Düzenlendi');
+        return redirect()->route('admin.makaleler.index');
     }
 
+    public function switch(Request $request){
+        $article=Article::findOrFail($request->id);
+        $article->status=$request->statu ?  1 : 0 ;
+        $article->save();
+
+    }
     /**
      * Remove the specified resource from storage.
      *

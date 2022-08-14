@@ -2,7 +2,7 @@
 @section("content")
     @if(count($icerikler)>0)
 <div class="container px-4 px-lg-3">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="row gx-4 gx-lg-2 justify-content-center">
 
 
             @include("front.widgets.categoryWidget")

@@ -15,6 +15,7 @@
                         <th>Fotoğraf</th>
                         <th>Makale Başlığı</th>
                         <th>Kategori</th>
+                        <th>İçerik</th>
                         <th>Görüntülenme Sayısı</th>
                         <th>Paylaşılma Tarihi</th>
                         <th>Durum</th>
@@ -31,12 +32,14 @@
                         </td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->getCategory->name}}</td>
+                        <td>{{$article->content}}</td>
                         <td>{{$article->hit}}</td>
                         <td>{{$article->created_at->diffForHumans()}}</td>
-                        <td>{!!$article->status==0 ? "<span class='text-danger'>Pasif </span>" :"<span class='text-success'>Aktif</span>" !!}</td>
+                        <td>
+                            <input class="switch" article-id="{{$article->id}}" type="checkbox" data-on="Aktif"  data-onstyle="success" data-offstyle="danger" data-off="Pasif" @if($article->status==1) checked @endif data-toggle="toggle">
                         <td>
                             <a href="#"title="Görüntüle" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
-                            <a href="#"title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
+                            <a href="{{route("admin.makaleler.edit",$article->id)}}"title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
                             <a href="#"title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
@@ -47,4 +50,21 @@
         </div>
     </div>
 
+@endsection
+@section('css')
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+@endsection
+@section('js')
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script>
+        $(function() {
+            $('.switch').change(function () {
+               id=$(this)[0].getAttribute('article->id');
+               statu=$(this).prop('checked');
+                $.get("{{route('admin.switch')}}", {id:id,statu:statu}, function(data, status){
+                    console.log(data);
+                });
+            });
+        })
+    </script>
 @endsection

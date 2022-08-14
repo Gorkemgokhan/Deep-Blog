@@ -7,7 +7,7 @@
         @include("front.widgets.categoryWidget")
             <div class="col-md-9 mx-auto">
                 <h2 style="text-align: center">{!! $article->title !!}</h2>
-                <img style="width:930px; height: 750px" ; src="{{$article->image}}"/>
+                <img style="width:930px; height: 750px" ; src="/{{$article->image}}"/>
                 <br>
                 {!! $article->content !!}
                 <h6 href=""> Konusu : {{$article->getCategory->name}}</h6>
