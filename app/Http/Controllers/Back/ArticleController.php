@@ -95,7 +95,7 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-           'title'=>'min:3',
+            'title'=>'min:3',
             'image'=>'image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -114,10 +114,9 @@ class ArticleController extends Controller
         return redirect()->route('admin.makaleler.index');
     }
 
-
     public function switch(Request $request){
         $article=Article::findOrFail($request->id);
-        $article->status=$request->statu=="true" ?  1 : 0 ;
+        $article->status=$request->statu ?  1 : 0 ;
         $article->save();
 
     }

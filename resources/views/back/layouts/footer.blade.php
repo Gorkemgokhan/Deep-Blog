@@ -34,10 +34,10 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Mevcut oturumunuzu bitirmeye hazırsanız, aşağıdan "Çıkış Yap"ı seçin.</div>
+            <div class="modal-body">Oturumu Sonlandırmak için, <i style="color: red">Çıkış Yap</i>'ı seçin.</div>
             <div class="modal-footer">
+                <a class="btn btn-danger" href="{{route("admin.logout")}}">Çıkış Yap</a>
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal</button>
-                <a class="btn btn-primary" href="{{route("admin.logout")}}">Çıkış Yap</a>
             </div>
         </div>
     </div>

@@ -100,20 +100,20 @@
                 <!-- Sidebar Message -->
                 <div class="sidebar-card d-none d-lg-flex">
                     <img class="sidebar-card-illustration mb-2" src="{{asset("back/")}}/img/undraw_profile_2.svg" alt="...">
-                    <a class="btn btn-danger btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">İletişim</a>
+                    <a class="btn btn-danger btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Kurucu ile İletişim</a>
                 </div>
 
             </ul>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
-            <div id="content-wrapper" style="background: #1A1B1A" class="d-flex flex-column">
+            <div id="content-wrapper" style="background:#373b3e" class="d-flex flex-column">
 
                 <!-- Main Content -->
-                <div style="background: #1A1B1A" id="content">
+                <div style="background:#2d4373" id="content">
 
                     <!-- Topbar -->
-                    <nav class="  navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
+                    <nav class="  navbar navbar-expand  topbar mb-4 static-top " style="background: #1A1A1D" >
 
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -152,12 +152,12 @@
 
 
 
-                            <div class="topbar-divider d-none d-sm-block"></div>
+                            <div class="topbar-divider d-none d-sm-block" ></div>
 
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Görkem Gökhan</span>
 
                                 </a>
@@ -187,7 +187,7 @@
                     </nav>
                     <div class="container-fluid">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">@yield("title","Panel")</h1>
+                            <h1 class="h3 mb-0 text-write-800" style="color:white">@yield("title","Panel")</h1>
                             <a href="{{route("homepage")}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-globe fa-sm text-white-50"></i> Sayfayı Görüntüle</a>
                         </div>
