@@ -49,7 +49,7 @@
                                     <input class="switch" category-id="{{$category->id}}" type="checkbox" data-on="Aktif"  data-onstyle="success" data-offstyle="danger" data-off="Pasif" @if($category->status==1) checked @endif data-toggle="toggle">
                                 <td>
                                     <a category-id="{{$category->id}}" class="btn btn-sm btn-primary edit-click" title="Kategoryi Düzenle"><i class="fa fa-edit text-white"></i></a>
-                                    <a category-id="{{$category->id}}" category-count="{{$category->articleCount()}}" class="btn btn-sm btn-danger remove-click" title="Kategoryi Sil"><i class="fa fa-times text-white"></i></a>
+                                    <a category-id="{{$category->id}}" category-name="{{$category->name}}" category-count="{{$category->articleCount()}}" class="btn btn-sm btn-danger remove-click" title="Kategoryi Sil"><i class="fa fa-times text-white"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -95,12 +95,17 @@
                 <h4 class="modal-title" style="color:#282828" >Kategori Sil</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-                <div class="modal-body">
-                <div id="articleAlert"></div>
+                <div id="body" class="modal-body">
+                <div class="alert alert-danger" id="articleAlert"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
-                    <button type="submit" class="btn btn-success">Sil</button>
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                    <form method="post" action="{{route("admin.category.delete")}}">
+                        @csrf
+                        <input type="hidden"  name="id" id="deleteId">
+                            <button id="deletebutton" type="submit" class="btn btn-danger">Sil</button>
+
+                    </form>
                 </div>
         </div>
     </div>
@@ -114,11 +119,28 @@
     <script>
         $(function() {
             $(".remove-click").click(function (){
+
                 id=$(this)[0].getAttribute('category-id');
                 count=$(this)[0].getAttribute('category-count');
-                    if(count<!0){
-                        $('#articleAlert').val('Bu kategoride '+count+' makale bulunmaktadır.Silmek istediğinize emin misiniz ?'); }
+                name=$(this)[0].getAttribute('category-name');
+               if(id==1){
+                   $('#articleAlert').html(name+'Genel Kategorisi silinemez. Silinen Kategori Makaleleri Bu kategoriye Eklenecektir.');
+                   $("#body").show();
+                   $("#deletebutton").hide();
+                   $("#deleteModal").modal();
+                   return;
+               }
+                $("#deletebutton").show();
+               $("#deleteId").val(id);
+               $("#articleAlert").html("");
+                $("#body").hide();
+                    if(count>0){
+                        $('#articleAlert').html('Bu kategoride '+count+' Makale var Silmek istediğine eminmisin ?');
+                        $("#body").show();
+                    }
+                $("#deleteModal").modal();
                 });
+
             $(".edit-click").click(function (){
                 id=$(this)[0].getAttribute('category-id');
                 $.ajax({

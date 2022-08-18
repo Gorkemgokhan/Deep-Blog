@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
@@ -141,11 +142,11 @@ class ArticleController extends Controller
         return redirect()->back();
     }
     public function HardDelete($id){
-        $article=Article::onlyTrashed()->find($id);
-        if (File::exists($article->image)){
-            File::delete(public_path($article->image));
+        $page=Page::find($id);
+        if (File::exists($page->image)){
+            File::delete(public_path($page->image));
         }
-        $article->forceDelete();
+        $page->delete();
         toastr()->success('Başarılı!', 'Makale Silindi');
         return redirect()->route('admin.makaleler.index');
     }

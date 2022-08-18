@@ -31,7 +31,7 @@
 
                     <tr>
                         <td>
-                            <img style=" max-width: 100%;height: auto;" src="/{{$article->image}}"  >
+                            <img style=" width: 200px;height: auto;" src="/{{$article->image}}">
                         </td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->getCategory->name}}</td>
