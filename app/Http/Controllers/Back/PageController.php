@@ -14,6 +14,13 @@ class PageController extends Controller
         $pages=Page::all();
         return view("back.page.index",compact("pages"));
     }
+
+    public function orders(Request $request){
+        foreach ($request->get("page") as $key =>$order){
+            Page::where("id","$order")->update(["order"=>$key]);
+        }
+    }
+
     public function create(){
         return view("back.page.create");
 
@@ -32,8 +39,8 @@ class PageController extends Controller
 
         $page   =   Page    ::   findOrFail($id);
         $page   ->  title   =    $request   -> title;
-        $page   ->  content =    $request   ->content;
-        $page   ->  slug    =    Str    ::  slug($request->title);
+        $page   ->  content =    $request   -> content;
+        $page   ->  slug    =    Str    ::     slug($request->title);
         if ($request        ->   hasFile('image')){
             $imageName      =    Str    ::      slug($request->title).'.'.$request->image->getClientOriginalExtension();
             $request        ->image     ->      move(public_path('uploads'),$imageName);

@@ -2,7 +2,7 @@
 @section("title","Kategoriler")
 @section("content")
 <div class="row">
-    <div class="col-md-4"style="background:#2d4373">
+    <div class="col-md-4" style="background:#2d4373">
         <div class="col-mb-4" >
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary" >Yeni Kategory oluştur</h6>
@@ -79,12 +79,13 @@
                         <label>Kategori Slug</label>
                         <input id="slug" type="text" class="form-control" name="slug" >
                     </div>
-            </div>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Kaydet</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
                     </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -130,10 +131,10 @@
                    $("#deleteModal").modal();
                    return;
                }
-                $("#deletebutton").show();
+               $("#deletebutton").show();
                $("#deleteId").val(id);
                $("#articleAlert").html("");
-                $("#body").hide();
+               $("#body").hide();
                     if(count>0){
                         $('#articleAlert').html('Bu kategoride '+count+' Makale var Silmek istediğine eminmisin ?');
                         $("#body").show();
@@ -144,9 +145,11 @@
             $(".edit-click").click(function (){
                 id=$(this)[0].getAttribute('category-id');
                 $.ajax({
-                    type:"GET",
+                    type:"POST",
                     url:"{{route("admin.category.getdata")}}",
-                    data:{id:id},
+                    data:{
+                        id:id,"_token":"{{ csrf_token() }}"
+                    },
                     success:function (data) {
                         console.log(data);
                         $("#category").val(data.name);
@@ -154,13 +157,14 @@
                         $("#category_id").val(data.id);
                         $("#editModal").modal();
                     }
-                })
+                });
             });
+
             $('.switch').change(function () {
                 id=$(this)[0].getAttribute('category-id');
                 statu=$(this).prop('checked');
 
-                $.get("{{route('admin.category.switch')}}", {id:id,statu:statu}, function(data, status){
+                $.post("{{route('admin.category.switch')}}", {id:id,statu:statu,"_token":"{{ csrf_token() }}"}, function(data, status){
                 });
             });
         })

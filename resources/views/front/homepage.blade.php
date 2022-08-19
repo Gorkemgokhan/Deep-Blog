@@ -1,12 +1,10 @@
 @extends("front.layouts.master")
 @section("content")
     @if(count($icerikler)>0)
-<div class="container px-4 px-lg-3">
+<div class="container px-4 px-lg-3" style="background:#FEFFFF" >
     <div class="row gx-4 gx-lg-2 justify-content-center">
-
-
             @include("front.widgets.categoryWidget")
-            <div class="col-md-9">
+            <div class="col-md-9" >
                 @foreach($icerikler as $icerik)
                     <div class="post-preview">
                         <a href="{{route("single",[$icerik->getCategory->slug,$icerik->slug])}}">
@@ -16,8 +14,8 @@
                         </a>
                         <p class="post-meta">
                             Konusu:
-                            <a href="#!">{{$icerik->getCategory->name}}</a>
-                            <span class="float-right">Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}
+                            <a href="#!">{{$icerik->getCategory->name}}</a><br>
+                            <span class="float-right" style="color:#17252A">Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}
                 <br></span>
                         </p>
                     </div>
@@ -26,7 +24,6 @@
                         <hr>
                     @endif
                 @endforeach
-                <div class="d-flex justify-content-center">Sayfalar</div>
                 <div class="d-flex justify-content-center"> {{$icerikler->links()}}</div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Models\Models\Contact;
-
+use Mail;
 
 class Homepage extends Controller
 {
@@ -69,12 +69,35 @@ class Homepage extends Controller
     return view("front.widgets.anabilgi.misyon",$data);
     }
     public function iletisimpost(Request $request){
-    $contact=new Contact();
-    $contact->name=$request->name;
-    $contact->email=$request->email;
-    $contact->konu=$request->konu;
-    $contact->message=$request->message;
-    $contact->save();
+
+        $rules=[
+          'name'=>'required|min:5',
+          'email'=>'required|email',
+          'konu'=>"required",
+          'message'=>'required|min:20'
+        ];
+        $validate=Validator::make($request->post(),$rules);
+            if($validate->fails()){
+             return redirect()->route('contact')->withErrors($validate)->withInput();
+        }
+
+        Mail::send([],[],function ($message) use($request){
+           $message->from('iletisim@blogsitesi.com','Blog Sitesi');
+           $message->to('Gorkem@blogsitesi.com');
+           $message->setBody('Mesaj Gönder : '.$request->name."<br>
+                   Mesaj GÖnderen Mail : ".$request->email."<br>
+                   Mesaj Konusu : ".$request->konu."<br>
+                   Mesaj : ".$request->message."<br>
+                   Mesaj Gönderilme Tarihi : ".$request->created_at."text/html");
+           $message->subject($request->name.'Mesaj Gönderildi');
+        });
+
+   // $contact=new Contact();
+   // $contact->name=$request->name;
+   // $contact->email=$request->email;
+   // $contact->konu=$request->konu;
+   // $contact->message=$request->message;
+   // $contact->save();
     return redirect()->route("iletisim")->with("success","Mesajınız Bize ulaştı. Teşekkürler.");
     }
 

@@ -16,7 +16,7 @@
                         <img style=" max-width: 100%;height: auto;" src="/{{$icerik->image}}"/>
                          <h4  class="post-subtitle">{{Str::limit($icerik->content,70)}}</h4></a>
                          <h6 >Konusu: {{$icerik->getCategory->name}}</h6>
-                         <h6 class="float-right">Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}</h6>
+                         <h6 class="float-right"><br>Oluşturulma Tarihi: {{$icerik->created_at->diffForHumans()}}</h6>
                         <h6>Görüntülenme : {{$icerik->hit}}</h6>
                         </p>
 

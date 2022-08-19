@@ -65,7 +65,7 @@
                id=$(this)[0].getAttribute('article-id');
                statu=$(this).prop('checked');
 
-                $.get("{{route('admin.switch')}}", {id:id,statu:statu}, function(data, status){
+                $.post("{{route('admin.switch')}}", {id:id,statu:statu,"_token":"{{ csrf_token() }}"}, function(data, status){
                     console.log(data);
                 });
             });

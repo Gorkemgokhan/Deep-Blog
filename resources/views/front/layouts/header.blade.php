@@ -17,6 +17,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset("Front/")}}/css/styles.css" rel="stylesheet" />
     <img src="/Front/assets/img/banner-gb1f328ef4_1920.jpg" style="width:100%; height: 400px;" >
+
 </head>
 <body>
 <!-- Navigation-->

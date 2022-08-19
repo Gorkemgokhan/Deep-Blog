@@ -122,10 +122,10 @@
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
-            <div id="content-wrapper" style="background:#373b3e" class="d-flex flex-column">
+            <div id="content-wrapper"  class="d-flex flex-column">
 
                 <!-- Main Content -->
-                <div style="background:#2d4373" id="content">
+                <div style="background-color: #1CC88A" id="content">
 
                     <!-- Topbar -->
                     <nav class="  navbar navbar-expand  topbar mb-4 static-top " style="background: #1A1A1D" >
