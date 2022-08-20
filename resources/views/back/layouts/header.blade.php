@@ -9,7 +9,7 @@
     <title>@yield("title","Admin Paneli")</title>
 
 
-    <link rel="icon" type="image/x-icon" href="/Front/assets/admin.ico">
+    <link rel="icon" type="image/x-icon" href="/Front/assets/administrator.ico">
     <!-- Custom fonts for this template-->
     <link href="{{asset("back/")}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
