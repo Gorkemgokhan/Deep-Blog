@@ -7,7 +7,7 @@
     <meta name="author" content="" />
     <title>Anasayfa</title>
 
-    <link rel="icon" type="image/x-icon" href="Front/assets/Glogo.ico">
+    <link rel="icon" type="image/x-icon" href="Front/assets/GGlogo.ico">
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous" ></script>
 
