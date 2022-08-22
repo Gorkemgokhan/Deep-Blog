@@ -3,12 +3,12 @@
 use App\Http\Controllers\Front\Homepage;
 use Illuminate\Support\Facades\Route;
 
+    //maintenance
+Route::get("site-bakimda",function (){return view("front.offline");});
     //Backend Route
-
 Route::prefix("admin")->name("admin.")->middleware("isLogin")->group(function(){
                     Route::get( "giris"                    ,[App\Http\Controllers\Back\AuthController::class,"login"])->name("login");
-                    Route::post("giris"                    ,[App\Http\Controllers\Back\AuthController::class,"loginPost"])->name("login.post");
-});
+                    Route::post("giris"                    ,[App\Http\Controllers\Back\AuthController::class,"loginPost"])->name("login.post");});
 Route::prefix("admin")->name("admin.")->middleware("isAdmin")->group(function(){
                     Route::get("panel"                     ,[App\Http\Controllers\Back\Dashboard::class,"index"])->name("dashboard");
     //MAKALE Route
@@ -38,9 +38,7 @@ Route::prefix("admin")->name("admin.")->middleware("isAdmin")->group(function(){
                     Route::get("/ayarlar"                  ,[App\Http\Controllers\Back\ConfigController::class,"index"])->name("config.index");
                     Route::post("/ayarlar/update"          ,[App\Http\Controllers\Back\ConfigController::class,"update"])->name("config.update");
     //EXIT
-                    Route::get("cikis"                     ,[App\Http\Controllers\Back\AuthController::class,"logout"])->name("logout");
-});
-
+                    Route::get("cikis"                     ,[App\Http\Controllers\Back\AuthController::class,"logout"])->name("logout");});
     // Front Route
                     Route::get('/'                         ,[Homepage::class,"index"])->name("homepage");
                     Route::get('/ana-sayfa'                ,[Homepage::class,"index"])->name("homepage");
@@ -49,7 +47,7 @@ Route::prefix("admin")->name("admin.")->middleware("isAdmin")->group(function(){
                     Route::get("/{category}/{slug}"        ,[Homepage::class,"single"])->name("single");
                     Route::get("/hakkinda"                 ,[Homepage::class,"hakkinda"])->name("hakkinda");
                     Route::get("/iletisim"                 ,[Homepage::class,"iletisim"])->name("iletisim");
-                    Route::post("/iletisim"                ,[Homepage::class,"iletisimpost"])->name("iletisimpost");
+                    Route::post("/iletisim"                ,[Homepage::class,"iletisimpost"])->name("iletisim.post");
                     Route::get("/{sayfa}"                  ,[Homepage::class,"page"])->name("page");
                     Route::get("/misyon"                   ,[Homepage::class,"misyon"])->name("misyon");
                     Route::get("/vizyon"                   ,[Homepage::class,"vizyon"])->name("vizyon");

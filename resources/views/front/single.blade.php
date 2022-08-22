@@ -1,7 +1,6 @@
 @extends("front.layouts.master")
 <title>Makale</title>
 @section("content")
-
 <div class="container px-4 px-lg-3">
     <div class="row gx-4  gx-lg-7 justify-content-center">
         @include("front.widgets.categoryWidget")
@@ -11,7 +10,7 @@
                 <br>
                 {!! $article->content !!}
                 <br>
-                <h7 href=""> Konusu : {{$article->getCategory->name}}</h7>
+                <h7 > Konusu : {{$article->getCategory->name}}</h7>
                 <br>
                 <i style="color: red"> Görüntülenme : {{$article->hit}}</i>
             </div>

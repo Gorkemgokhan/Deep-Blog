@@ -15,7 +15,7 @@ class  PageSeeder extends Seeder
      */
     public function run()
     {
-        $pages = ["İletişim","Hakkımızda","Vizyonumuz","Misyonumuz"];
+        $pages = ["Ana Sayfa","İletişim","Hakkımızda","Vizyonumuz","Misyonumuz"];
         $count=0;
         foreach ($pages as $page) {
             $count++;

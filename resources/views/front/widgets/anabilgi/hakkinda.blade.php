@@ -3,7 +3,8 @@
 @section("bg",$page->image)
 @section("content")
             <div class="col-lg-8 col-md-10 mx-auto" style="text-align: center">
-            {!!   $page->content  !!}
+                <h3 style="color: red">{!! $page->title !!}</h3><br>
+                {!!   $page->content  !!}
             </div>
 @endsection
 

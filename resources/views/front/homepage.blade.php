@@ -10,7 +10,7 @@
                         <a href="{{route("single",[$icerik->getCategory->slug,$icerik->slug])}}">
                             <h2 style="text-align: center" class="post-title">{{$icerik->title}}</h2>
                             <img style=" max-width: 100%;height: auto;" src="{{$icerik->image}}"/>
-                            <h4 class="post-subtitle">{{Str::limit($icerik->content,70)}}</h4>
+                            <h5 class="post-subtitle">{{Str::limit($icerik->content,70)}}</h5>
                         </a>
                         <p class="post-meta">
                             Konusu:

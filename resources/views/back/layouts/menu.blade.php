@@ -1,4 +1,4 @@
-        <body id="page-top">
+        <body id="page-top" style="background: #1A1A1D">
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -47,16 +47,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  @if(Request::segment(2)=="sayfalar") in @else collapsed @endif  " href="{{route("admin.page.index")}}" data-toggle="collapsePage" data-target="#collapsePage"
-                       aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-pager"></i>
+                    <a class="nav-link  @if(Request::segment(2)=="sayfalar") in @else collapsed @endif"  href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePage">
+                        <i class="fas fa-fw fa-folder"></i>
                         <span>Sayfalar</span>
                     </a>
-                    <div id="collapseTwo" class="collapse @if(Request::segment(2)=="sayfalar")show @endif " aria-labelledby="headingPage" data-parent="#accordionSidebar">
+                    <div id="collapsePage" class="collapse @if(Request::segment(2)=="sayfalar") show @endif " aria-labelledby="headingPage" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Sayfa İşlemleri:</h6>
-                            <a class="collapse-item @if(Request::segment(2)=="sayfalar"and !Request::segment(3)) active @endif " href="{{route("admin.page.index")}}">Tüm sayfalar</a>
-                            <a class="collapse-item @if(Request::segment(2)=="sayfalar" and Request::segment(3)=="olustur") active @endif " href="{{route("admin.page.create")}}">Sayfa Oluştur</a>
+                            <a class="collapse-item @if(Request::segment(2)=="sayfalar" and !Request::segment(3)) active @endif " href="{{route('admin.page.index')}}">Tüm Sayfalar</a>
+                            <a class="collapse-item @if(Request::segment(2)=="sayfalar" and Request::segment(3)=="olustur") active @endif " href="{{route('admin.page.create')}}">Sayfa Oluştur</a>
                         </div>
                     </div>
                 </li>
@@ -145,7 +144,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Görkem Gökhan</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
 
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -155,13 +154,9 @@
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profil
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route("admin.config.index")}}">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Ayarlar
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Etkinlik Günlüğü
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

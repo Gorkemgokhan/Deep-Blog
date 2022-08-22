@@ -15,7 +15,9 @@ class ConfigSeeder extends Seeder
     public function run()
     {
         DB::table("configs")->insert([
-            "title"=>"Görkem Gökhan",
+            "title"=>"Big.Black.Blog",
+            "instagram"=>"https://www.instagram.com/gorkemgokhan1/",
+            "youtube"=>"https://www.youtube.com/channel/UCKcl0S6wgX7-bhUdFHmUDag",
             "created_at"=>now(),
             "updated_at"=>now(),
         ]);

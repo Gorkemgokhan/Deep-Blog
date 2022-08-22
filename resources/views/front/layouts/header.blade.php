@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Anasayfa</title>
-
-    <link rel="icon" type="image/x-icon" href="Front/assets/GGlogo.ico">
-
+    <title>@yield("title")  {{$config->title }} </title>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous" ></script>
 
-    <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset("Front/")}}/css/styles.css" rel="stylesheet" />
-    <img src="/Front/assets/img/banner-gb1f328ef4_1920.jpg" style="width:100%; height: 400px;" >
-
+    <img src="/Front/assets/img/images.jpg" style=" width:100%; height: 400px;" >
+    <link rel="shortcut icon" type="image/png" href="{{asset($config->favicon)}}">
 </head>
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="http://localhost:8000" >Getucon Blog</a>
+    <div class="container">
+        <a class="navbar-brand" href="{{route("homepage")}}">
+            @if($config->logo!=null)
+            <img src="{{asset($config->logo)}}" width="100" />
+            @else
+            {{$config->title}}
+            @endif
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>

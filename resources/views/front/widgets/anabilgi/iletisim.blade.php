@@ -9,28 +9,37 @@
                     {{session("success")}}
                 </div>
                 @endif
-                <p>Bizimle İletişim Kurup Topluluk için önerlilerinizi ve fikirlerinizi paylaşabilirsiniz</p>
+                <p style="text-align: center">Topluluk için önerlilerinizi ve fikirlerinizi paylaşabilirsiniz</p>
                 <div class="my-5">
 
-                    <form method="post" action="{{route("iletisimpost")}}">
+                    <form method="post" action="{{route("iletisim.post")}}">
                         @csrf
-                        <div class="form-floating">
-                            <input class="form-control" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required,name" />
-                            <label for="name">İsim Soyisim</label>
-                            <div class="invalid-feedback" value="{{old("name")}}" data-sb-feedback="name:required">A name is required.</div>
-                            <p class="help-blodck text-danger"></p>
+                        <div class="control-group">
+                            <div class="form-group  controls">
+                                <input type="text" class="form-control" value="{{old('name')}}" placeholder="Ad Soyad" name="name" required >
+                                <p class="help-block text-danger"></p>
+                            </div>
                         </div>
-                        <div class="form-floating">
-                            <input class="form-control" name="email" value="{{old("email")}}" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
-                            <label for="email">Email adresi</label>
+                        <div class="control-group">
+                            <div class="form-group  controls">
+                                <input type="email" class="form-control" value="{{old('email')}}" placeholder="Email Adresiniz" name="email" required >
+                            </div>
                         </div>
-                        <div class="form-floating">
-                            <input class="form-control" name="konu" value="{{old("konu")}}" type="konu" placeholder="Konuyu seçiniz" data-sb-validations="required" />
-                            <label >Konu</label>
+                        <div class="control-group">
+                            <br>
+                            <div class="form-group col-xs-12  controls">
+                                <select class="form-control" name="konu">
+                                    <option @if(old('topic')=="Bilgi") selected @endif>Bilgi</option>
+                                    <option @if(old('topic')=="Destek") selected @endif>Destek</option>
+                                    <option @if(old('topic')=="Genel") selected @endif>Genel</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" name="message" value="{{old("message")}}" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
-                            <label for="message">Mesajınız</label>
+                        <div class="control-group">
+                            <div class="form-group  controls">
+                                <br>
+                                <textarea rows="5" name="message" class="form-control" placeholder="Mesajınız">{{old('message')}}</textarea>
+                            </div>
                         </div>
                         <br />
                         <!-- Submit success message-->
@@ -40,16 +49,14 @@
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Form gönderimi başarılı!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
                         <!-- Submit error message-->
                         <!---->
                         <!-- This is what your users will see when there is-->
                         <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Mesaj gönderilirken hata oluştu!</div></div>
+                        <div class="d-none" id="submitErrorMessage">
+                            <div class="text-center text-danger mb-3">Mesaj gönderilirken hata oluştu!</div></div>
                         <!-- Submit Button-->
                         <button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Gönder</button>
                     </form>
