@@ -100,7 +100,6 @@
 
                     <!-- Topbar -->
                     <nav class="  navbar navbar-expand  topbar mb-4 static-top " style="background: #1A1A1D" >
-
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
